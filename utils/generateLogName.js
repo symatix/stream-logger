@@ -1,3 +1,8 @@
+/**
+ * 
+ * DEPRECATED
+ */
+
 // generates the name of the file, depending on the time of execution
 
 module.exports = function(){
