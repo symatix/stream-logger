@@ -3,8 +3,8 @@ const request = require('request');
 // stream database
 const streamDB = require('../db/streamDB.js');
 // helpers
-const configureReqOptions = require('./configureReqOptions.js');
-const formatStreamData = require('./formatStreamData.js');
+const setRequestUrl = require('./setRequestUrl.js');
+const extractStreamData = require('./extractStreamData.js');
 
 module.exports = function(array) {
    return new Promise(function (resolve, reject) {
@@ -13,11 +13,11 @@ module.exports = function(array) {
          const { url, station } = streamDB[i];
 
          // async job
-         request(configureReqOptions(url), (err, resp, body) => {
+         request(setRequestUrl(url), (err, resp, body) => {
             if (err) {
                reject("Request error: ", err);
             } else {
-               array.push(formatStreamData(body, station))
+               array.push(extractStreamData(body, station))
                if (array.length === streamDB.length) {
                     resolve(array);
                }

@@ -1,7 +1,6 @@
 const authorize = require('../api/authorize');
 const writeToSheet = require('../api/writeToSheet');
 const asyncGrabData = require('./asyncGrabData');
-const formatSongName = require('./formatSongName');
 
 module.exports = function(){
    asyncGrabData([]).then(res => {

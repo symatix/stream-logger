@@ -13,21 +13,21 @@ module.exports = function(body, station){
          if(!data[i]){
             data[i] = "[no data]"
          } else {
-            formatSongName(data[i])
+            data[i] = formatSongName(data[i])
          }
       } else {
-         parseInt(data[i], 10);
+         data[i] = parseInt(data[i], 10);
       }
    }
 
    return {
       station: station,
       current_listeners: data[0],
+      current_song: data[6],
       //stream_status: data[1],
       //peak_listeners: data[2],
       //max_listeners: data[3],
       //unique_listeners: data[4],
       //bitrate: data[5],
-      current_song: data[6],
    }
 }
