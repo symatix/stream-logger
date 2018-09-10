@@ -1,14 +1,14 @@
 const {google} = require('googleapis');
-const SHEET_ID = require('../config/sheet').sheet_id;
+const {SHEET_ID} = require('../config/sheet');
+const calculateRange = require('../utils/calculateRange');
 
-var range = "A2:Y1000";
 
 module.exports = function (auth, data) {
    const sheets = google.sheets({version: 'v4', auth});
    
    sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID, 
-      range: range, 
+      range: calculateRange(), 
       valueInputOption: "USER_ENTERED", 
       resource: { values: data }
    }, (err, res) => {
