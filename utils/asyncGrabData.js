@@ -19,7 +19,7 @@ module.exports = function(array) {
             } else {
                array.push(formatStreamData(body, station))
                if (array.length === streamDB.length) {
-                  resolve(array);
+                    resolve(array);
                }
             }
          })

@@ -14,7 +14,7 @@ module.exports = function (auth, data) {
    }, (err, res) => {
       if (err) return console.log('The API returned an error: ' + err);
       const status = res.statusText;
-      console.log(`Status of updating: ${status}`)
+      console.log(`=> status of update at ${new Date().toLocaleString()}: [${status}]`)
    })
 
 }

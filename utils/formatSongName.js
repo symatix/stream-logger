@@ -1,11 +1,9 @@
-module.exports = function(arr){
-    return arr.map(a => {
-        if (a.includes("&amp;")){
-            return a.replace("&amp;", "&")
-        }
-        if (a.includes("&apos;")){
-            return a.replace("&apos;", "'")
-        }
-        return a
-    })
+module.exports = function(song){
+    if (song.includes("&amp;")){
+        return song.replace("&amp;", "&")
+    }
+    if (song.includes("&apos;")){
+        return song.replace("&apos;", "'")
+    }
+    return song
 }

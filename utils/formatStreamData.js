@@ -1,3 +1,5 @@
+// helper function
+const formatSongName = require('./formatSongName');
 // generates a string to be written to log file with data for the given station
 
 module.exports = function(body, station){
@@ -10,6 +12,8 @@ module.exports = function(body, station){
       if (i === 6) {
          if(!data[i]){
             data[i] = "[no data]"
+         } else {
+            formatSongName(data[i])
          }
       } else {
          parseInt(data[i], 10);
