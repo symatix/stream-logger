@@ -3,8 +3,8 @@ const request = require('request');
 // stream database
 const streamDB = require('../db/streamDB.js');
 // helpers
-const configureReqOptions = require('../utils/configureReqOptions.js');
-const formatStreamData = require('../utils/formatStreamData.js');
+const configureReqOptions = require('./configureReqOptions.js');
+const formatStreamData = require('./formatStreamData.js');
 
 module.exports = function(array) {
    return new Promise(function (resolve, reject) {

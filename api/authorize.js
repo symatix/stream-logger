@@ -9,6 +9,7 @@ module.exports = function (callback, data) {
    );
 
    oAuth2Client.setCredentials(token);
+   
    if (data) {
       callback(oAuth2Client, data);
    } else {
