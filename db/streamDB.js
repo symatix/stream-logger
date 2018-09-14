@@ -60,6 +60,11 @@ module.exports = [
         id: 12,
         station: "Extra FM B",
         url: "http://78.46.19.154:8110/7.html"
+    },
+    {
+        id: 13,
+        station: "Radio Dalmacija",
+        url: "http://5.9.210.22:8000/7.html"
     }   
 ]
 

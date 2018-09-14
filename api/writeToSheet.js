@@ -1,6 +1,6 @@
 const {google} = require('googleapis');
 const {SHEET_ID} = require('../config/sheet');
-const calculateRange = require('../utils/calculateRange');
+const setSheetAndRange = require('../utils/setSheetAndRange');
 
 
 module.exports = function (auth, data) {
@@ -8,7 +8,7 @@ module.exports = function (auth, data) {
    
    sheets.spreadsheets.values.append({
       spreadsheetId: SHEET_ID, 
-      range: calculateRange(), 
+      range: setSheetAndRange(), 
       valueInputOption: "USER_ENTERED", 
       resource: { values: data }
    }, (err, res) => {
@@ -16,5 +16,4 @@ module.exports = function (auth, data) {
       const status = res.statusText;
       console.log(`=> status of update at ${new Date().toLocaleString()}: [${status}]`)
    })
-
 }
