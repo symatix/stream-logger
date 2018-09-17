@@ -1,0 +1,34 @@
+{
+  "name": "logger",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm run start --prefix gui",
+    "server": "nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/symatix/stream-logger.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/symatix/stream-logger/issues"
+  },
+  "homepage": "https://github.com/symatix/stream-logger#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.3",
+    "googleapis": "^33.0.0",
+    "mongoose": "^5.2.14",
+    "node-schedule": "^1.3.0",
+    "nodemon": "^1.18.4",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
+}

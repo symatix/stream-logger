@@ -1,5 +1,6 @@
 // helper function
 const formatSongName = require('./formatSongName');
+const formatTime = require('./formatTime');
 // generates a string to be written to log file with data for the given station
 
 module.exports = function(body, station){
@@ -24,10 +25,11 @@ module.exports = function(body, station){
       station: station,
       current_listeners: data[0],
       current_song: data[6],
-      //stream_status: data[1],
-      //peak_listeners: data[2],
-      //max_listeners: data[3],
-      //unique_listeners: data[4],
-      //bitrate: data[5],
+      stream_status: data[1],
+      peak_listeners: data[2],
+      max_listeners: data[3],
+      unique_listeners: data[4],
+      bitrate: data[5],
+      time: formatTime()
    }
 }

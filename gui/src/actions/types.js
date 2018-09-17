@@ -1,0 +1,8 @@
+
+export const FETCH_USER = 'FETCH_USER';
+
+export const GET_STATIONS = 'GET_STATIONS';
+export const GET_STREAMS = 'GET_STREAMS';
+export const GET_STREAMS_FROM_STATION = 'GET_STREAMS_FROM_STATION';
+export const REMOVE_STATION = 'REMOVE_STATION';
+export const ADD_STATION = 'ADD_STATION';

@@ -1,6 +1,6 @@
 
-const logStreams = require('./utils/logStreams.js');
+const getDataAndInsertToDB = require('./utils/getDataAndInsertToDB.js');
 
 
-logStreams()
+getDataAndInsertToDB();
 
