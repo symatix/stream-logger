@@ -21,11 +21,11 @@ require('./routes/station')(app);
 require('./routes/stream')(app);
 
 // initiate scan of streams
-setInterval(() => {
-	axios.get(`http://localhost:${PORT}/api/streams/scan`).then(res => {
-		console.log(`==> scanned ${res.data.length} stations at ${formatTime()}`)
-	}).catch(e => console.log(e))
-}, 15000)
+// setInterval(() => {
+// 	axios.get(`http://localhost:${PORT}/api/streams/scan`).then(res => {
+// 		console.log(`==> scanned ${res.data.length} stations at ${formatTime()}`)
+// 	}).catch(e => console.log(e))
+// }, 300000)
 
 // this is used in production
 if (process.env.NODE_ENV === 'production') {
