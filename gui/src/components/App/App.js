@@ -6,18 +6,22 @@ import CrazyGraph from '../Graphs/CrazyGraph';
 import LineGraph from '../Graphs/Line';
 
 class App extends Component {
+
+
+
    componentDidMount() {
       this.props.getStations();
       this.props.getStreams();
+
    }
 
    render() {
       return (
          <div className="App">
          <div style={{width:'50%'}}>
-            <LineGraph />
+            {/*<LineGraph />*/}
          </div>
-            <ListDisplay />
+            {/*<ListDisplay />*/}
          </div>
       );
    }

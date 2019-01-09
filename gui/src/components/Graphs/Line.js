@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {Line} from 'react-chartjs-2';
 
-const data = {
+var initState = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   datasets: [
     {
-      label: 'My First dataset',
-      fill: false,
+      label: 'dataset',
+      fill: true,
       lineTension: 0.1,
       backgroundColor: 'rgba(75,192,192,0.4)',
       borderColor: 'rgba(75,192,192,1)',
@@ -30,32 +30,77 @@ const data = {
 };
 
 class LineGraph extends Component {
+   constructor(props){
+      super(props);
+
+      this.constructData = this.constructData.bind(this)
+   }
+
+   componentWillMount(){
+      this.setState(initState) 
+   }
+
+   componentDidMount(){
+      var _this = this;
+      var newData = this.constructData();
+      console.log(newData)
+   }
+
+  stepFilter(arr, i, step) {
+    var length = arr.length;
+    var first = arr[0]
+    console.log(arr)
+    while (step < length - 1) {
+      arr.splice(i, step);
+      console.log(arr)
+      i++;
+      length = arr.length
+    }
+    arr.unshift(first)
+    return arr
+  }
 
    constructData(){
-      var arr = this.props.streams.filter(a => a.station === 'Yammat FM')
-         .filter(function(value, index, Arr) {
-            return index % 20 == 0;
-         });
-
+      console.log("klikam")
       var labels = [];
       var data = [];
-      
-      arr.map(a => {
-         labels.push(a.time)
-         data.push(a.current_listeners)
-      })
-      console.log(labels)
-      console.log(data)
 
+      const arr = this.stepFilter(
+        this.props.streams.filter(a => a.station === 'Yammat FM'),
+        0,
+        19
+      )
+      console.log(arr)
+
+      // arr.map(a => {
+      //         labels.push(a.time)
+      //         data.push(a.current_listeners)
+      //      })
+
+      // console.log(this.props)
+      // this.props.streams
+      //    .filter(a => a.station === 'Yammat FM')
+      //    .filter((value, index, Arr) => index % 20 == 0)
+      //    .map(a => {
+      //       labels.push(a.time)
+      //       data.push(a.current_listeners)
+      //    })
+
+      // var newState = { ...this.state }
+      // newState.labels = labels;
+      // newState.datasets[0].data = data;
+      // newState.datasets[0].label = "Listeners";
+      // console.log(newState)
+      // this.setState(newState);
    }
 
 
   render() {
-     this.constructData()
     return (
       <div>
+         <button onClick={this.constructData}>showGraph</button>
         <h2>Line Example</h2>
-        <Line data={data} />
+        <Line data={this.state} />
       </div>
     );
   }
